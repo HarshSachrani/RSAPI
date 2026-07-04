@@ -320,6 +320,9 @@ app.get('/analytics/monthly-rent-collection', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('SERVER IS RUNNING ON PORT 3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`SERVER IS RUNNING ON PORT ${PORT}`);
 });
+
+module.exports = app; // needed so Vercel can run this as a serverless function (harmless if not used)g
